@@ -23,5 +23,14 @@
 		&:last-of-type {
 			border: none;
 		}
+
+		&_selected {
+			color: ck-color( 'background' );
+			background: ck-color( 'focus' );
+
+			&:hover {
+				background: ck-color( 'focus', -10 );
+			}
+		}
 	}
 }
