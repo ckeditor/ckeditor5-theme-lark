@@ -1,0 +1,18 @@
+// Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+// For licensing, see LICENSE.md or http://ckeditor.com/license
+
+.ck-panel {
+	border: 1px solid ck-border-color( 'foreground' );
+	display: none;
+	box-shadow: 0 0 5px ck-color( 'foreground', -15 );
+	position: absolute;
+
+	background: ck-color( 'background' );
+	z-index: ck-z();
+
+	@include ck-rounded-corners();
+
+	&-active {
+		display: inline-block;
+	}
+}
