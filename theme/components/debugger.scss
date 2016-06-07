@@ -4,17 +4,57 @@
 
 .ck-editor__code {
 	font-family: Inconsolata, monospace;
+	resize: vertical;
+	overflow: auto;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none;
 
 	ul {
 		list-style: none;
 		margin-left: 10px;
 		padding-left: 10px;
-
 	}
 }
 
 .ck-editor__code-element {
 	color: #4ebb42;
+}
+
+.ck-editor--clickable {
+	cursor: pointer;
+}
+
+.ck-editor__list-helper {
+	display: none;
+}
+
+.ck-editor__code-element--is-close {
+	display: inline-block;
+
+	&:after {
+		content: '...';
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+
+	+ li {
+		display: inline-block;
+
+		+ .ck-editor__list-helper {
+			display: block;
+		}
+	}
+
+	> ul {
+		display: none;
+	}
+}
+
+.ck-editor--non-clickable {
+	cursor: default;
 }
 
 .ck-editor__code-text {
