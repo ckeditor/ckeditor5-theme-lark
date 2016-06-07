@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext);
+
+// Based on Github styles
+
+.ck-editor__code {
+	font-family: Inconsolata, monospace;
+
+	ul {
+		list-style: none;
+		margin-left: 10px;
+		padding-left: 10px;
+
+	}
+}
+
+.ck-editor__code-element {
+	color: #4ebb42;
+}
+
+.ck-editor__code-text {
+	color: #4a2d00;
+
+	&:before {
+		content: '"';
+	}
+
+	&:after {
+		content: '"';
+	}
+}
+
+.ck-editor__code-attribute-name {
+	color: #dc7171;
+}
+
+.ck-editor__code-attribute-value {
+	color: #3b62d8;
+}
