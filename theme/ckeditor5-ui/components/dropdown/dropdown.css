@@ -59,9 +59,4 @@
 
 	/* Make sure the panel is at least as wide as the dropdown's button. */
 	min-width: 100%;
-
-	/* Handling two colored icons: https://github.com/ckeditor/ckeditor5-theme-lark/issues/148 */
-	& svg path:not(.ck-icon__fill) {
-		color: var(--ck-color-text);
-	}
 }
