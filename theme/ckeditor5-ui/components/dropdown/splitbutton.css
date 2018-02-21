@@ -31,4 +31,9 @@
 			width: var(--ck-dropdown-arrow-size);
 		}
 	}
+
+	/* Handling two colored icons: https://github.com/ckeditor/ckeditor5-theme-lark/issues/148 */
+	& svg path:not(.ck-icon__fill) {
+		color: var(--ck-color-text);
+	}
 }
