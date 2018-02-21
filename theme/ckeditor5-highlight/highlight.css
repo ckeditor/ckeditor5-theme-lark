@@ -2,5 +2,5 @@
 	/* We need to overwrite value from ckeditor5-highlight repository to handle two colored icons
 	 * https://github.com/ckeditor/ckeditor5-theme-lark/issues/148
 	 */
-	color: var(--ck-color-text);
+	fill: var(--ck-color-text);
 }

@@ -13,6 +13,6 @@ svg.ck-icon {
 
 	/* Handling two colored icons: https://github.com/ckeditor/ckeditor5-theme-lark/issues/148 */
 	& path:not(.ck-icon__fill) {
-		color: var(--ck-color-text);
+		fill: var(--ck-color-text);
 	}
 }
