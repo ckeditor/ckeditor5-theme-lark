@@ -10,7 +10,7 @@
 @import "@ckeditor/ckeditor5-ui/theme/mixins/_rwd.css";
 
 .ck.ck-link-actions {
-	padding: var(--ck-spacing-standard);
+	padding: var(--ck-spacing-large);
 
 	& .ck-button.ck-link-actions__preview {
 		padding-left: 0;
@@ -65,7 +65,7 @@
 		width: calc(.8 * var(--ck-input-text-width));
 
 		& .ck-button.ck-link-actions__preview {
-			margin: var(--ck-spacing-standard) var(--ck-spacing-standard) 0;
+			margin: var(--ck-spacing-large);
 
 			& .ck-button__label {
 				min-width: 0;
@@ -75,8 +75,7 @@
 
 		& .ck-button:not(.ck-link-actions__preview) {
 			padding: var(--ck-spacing-standard);
-			margin-top: var(--ck-spacing-standard);
-			margin-left: 0;
+			margin: 0;
 
 			border-radius: 0;
 			border: 0;

@@ -8,14 +8,15 @@
 .ck.ck-labeled-input {
 	@mixin ck-rounded-corners;
 
-	position: relative;
-	box-shadow: 0 0 0px 1px var(--ck-color-input-border);
-
 	&.ck-labeled-input_focused {
-		box-shadow: 0 0 0px 1px var(--ck-color-focus-border);
-
 		& .ck-input:not([readonly]) + .ck.ck-label {
 			color: hsl(208,67%,49%);
+		}
+	}
+
+	&.ck-error {
+		& .ck-input:not([readonly]) + .ck.ck-label {
+			color: var(--ck-color-base-error);
 		}
 	}
 
@@ -24,7 +25,15 @@
 		box-shadow: 0 0 0px 1px var(--ck-color-input-disabled-border);
 	}
 
-	& > .ck.ck-label {
+	& .ck-labeled-input__wrapper {
+		position: relative;
+	}
+
+	& .ck.ck-input {
+		width: 100%;
+	}
+
+	& .ck.ck-label {
 		display: block;
 		position: absolute;
 		top: calc(-1 * var(--ck-spacing-large));
@@ -38,11 +47,13 @@
 		padding: 0 var(--ck-font-size-tiny);
 		line-height: initial;
 		font-weight: normal;
+		transform: none;
 
 		transition:
 			top .1s ease-in-out,
 			transform .1s ease-in-out,
 			padding .1s ease-in-out,
+			background .1s ease-in-out,
 			font-size .1s ease-in-out;
 	}
 
@@ -50,14 +61,8 @@
 		color: var(--ck-color-input-disabled-text);
 	}
 
-	& > .ck.ck-input {
-		border: 0;
-		background: 0;
-		box-shadow: none;
-		width: 100%;
-	}
-
 	& .ck-input-text.ck-input-text_empty:not(.ck-input_focused):not([placeholder]) + .ck.ck-label {
+		background: transparent;
 		font-size: var(--ck-font-size-normal);
 		right: var(--ck-spacing-medium);
 		top: 50%;

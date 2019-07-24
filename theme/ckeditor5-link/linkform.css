@@ -6,7 +6,7 @@
 @import "@ckeditor/ckeditor5-ui/theme/mixins/_rwd.css";
 
 .ck.ck-link-form {
-	padding: var(--ck-spacing-standard);
+	padding: var(--ck-spacing-large);
 
 	&:focus {
 		/* https://github.com/ckeditor/ckeditor5-link/issues/90 */
@@ -22,7 +22,7 @@
 		width: calc(.8 * var(--ck-input-text-width));
 
 		& .ck-labeled-input {
-			margin: var(--ck-spacing-standard) var(--ck-spacing-standard) 0;
+			margin: var(--ck-spacing-large);
 
 			& .ck-input-text {
 				min-width: 0;
@@ -32,8 +32,7 @@
 
 		& .ck-button {
 			padding: var(--ck-spacing-standard);
-			margin-top: var(--ck-spacing-standard);
-			margin-left: 0;
+			margin: 0;
 
 			border-radius: 0;
 			border: 0;
