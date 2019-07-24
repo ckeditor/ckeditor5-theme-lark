@@ -10,7 +10,7 @@
 
 	&.ck-labeled-input_focused {
 		& .ck-input:not([readonly]) + .ck.ck-label {
-			color: hsl(208,67%,49%);
+			color: hsl(207.9,69.4%,44.9%);
 		}
 	}
 
@@ -70,7 +70,6 @@
 		transform: translateY(-50%);
 		bottom: 0;
 		background: none;
-		opacity: .7;
 	}
 }
 
