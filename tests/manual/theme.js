@@ -231,36 +231,33 @@ function renderButton() {
 function renderDropdown() {
 	// --- ListDropdown ------------------------------------------------------------
 
-	const collection = new Collection( { idProperty: 'label' } );
-
-	collection.add( {
-		type: 'switchbutton',
-		model: new Model( {
-			label: 'A switchable list item',
-			withText: true
-		} )
-	} );
-
-	collection.add( {
-		type: 'switchbutton',
-		model: new Model( {
-			label: 'On with an icon',
-			withText: true,
-			isOn: true,
-			icon: boldIcon
-		} )
-	} );
-
-	collection.add( {
-		type: 'switchbutton',
-		model: new Model( {
-			label: 'Disabled',
-			withText: true,
-			isEnabled: false
-		} )
-	} );
-
-	collection.add( { type: 'separator' } );
+	const collection = new Collection( [
+		{
+			type: 'switchbutton',
+			model: new Model( {
+				label: 'A switchable list item',
+				withText: true
+			} )
+		},
+		{
+			type: 'switchbutton',
+			model: new Model( {
+				label: 'On with an icon',
+				withText: true,
+				isOn: true,
+				icon: boldIcon
+			} )
+		},
+		{
+			type: 'switchbutton',
+			model: new Model( {
+				label: 'Disabled',
+				withText: true,
+				isEnabled: false
+			} )
+		},
+		{ type: 'separator' }
+	], { idProperty: 'label' } );
 
 	[ 'Arial', 'Tahoma', 'Georgia' ].forEach( font => {
 		collection.add( {
@@ -273,36 +270,35 @@ function renderDropdown() {
 		} );
 	} );
 
-	collection.add( { type: 'separator' } );
-
-	collection.add( {
-		type: 'button',
-		model: new Model( {
-			label: 'Bold',
-			withText: true,
-			icon: boldIcon
-		} )
-	} );
-
-	collection.add( {
-		type: 'button',
-		model: new Model( {
-			label: 'This item is on',
-			withText: true,
-			icon: boldIcon,
-			isOn: true
-		} )
-	} );
-
-	collection.add( {
-		type: 'button',
-		model: new Model( {
-			label: 'Disabled',
-			withText: true,
-			icon: boldIcon,
-			isEnabled: false
-		} )
-	} );
+	collection.add(
+		{ type: 'separator' },
+		{
+			type: 'button',
+			model: new Model( {
+				label: 'Bold',
+				withText: true,
+				icon: boldIcon
+			} )
+		},
+		{
+			type: 'button',
+			model: new Model( {
+				label: 'This item is on',
+				withText: true,
+				icon: boldIcon,
+				isOn: true
+			} )
+		},
+		{
+			type: 'button',
+			model: new Model( {
+				label: 'Disabled',
+				withText: true,
+				icon: boldIcon,
+				isEnabled: false
+			} )
+		}
+	);
 
 	ui.listDropdown.add( toolbar( [
 		listDropdown( {
@@ -504,7 +500,7 @@ function switchbutton( {
 function toolbar( children = [] ) {
 	const toolbar = new ToolbarView( locale );
 
-	children.forEach( c => toolbar.items.add( c ) );
+	toolbar.items.add( ...children );
 
 	return toolbar;
 }
