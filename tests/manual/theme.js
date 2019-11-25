@@ -15,6 +15,7 @@ import Locale from '@ckeditor/ckeditor5-utils/src/locale';
 import IconView from '@ckeditor/ckeditor5-ui/src/icon/iconview';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import SwitchButtonView from '@ckeditor/ckeditor5-ui/src/button/switchbuttonview';
+import SelectView from '@ckeditor/ckeditor5-ui/src/select/selectview';
 
 import { createDropdown, addListToDropdown, addToolbarToDropdown } from '@ckeditor/ckeditor5-ui/src/dropdown/utils';
 
@@ -81,7 +82,9 @@ const ui = testUtils.createTestUIView( {
 	'toolbarMultiRow': '#toolbar-multi-row',
 
 	'inputLabeled': '#input-labeled',
-	'inputReadOnly': '#input-read-only'
+	'inputReadOnly': '#input-read-only',
+
+	'select': '#select'
 } );
 
 renderIcon();
@@ -89,6 +92,7 @@ renderButton();
 renderDropdown();
 renderToolbar();
 renderInput();
+renderSelect();
 
 function renderIcon() {
 	// --- In-text ------------------------------------------------------------
@@ -454,6 +458,23 @@ function renderInput() {
 		isReadOnly: true,
 		value: 'Read–only input value'
 	} ) );
+}
+
+function renderSelect() {
+	const select = new SelectView( null, [ {
+		value: 1,
+		label: 'Value 1'
+	}, {
+		value: 2,
+		label: 'Value 2'
+	}, {
+		value: 3,
+		label: 'Value 3'
+	}, ] );
+
+	select.id = 'select-instance';
+
+	ui.select.add( select );
 }
 
 function text() {
