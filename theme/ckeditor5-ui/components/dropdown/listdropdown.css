@@ -5,28 +5,59 @@
 
 @import "../../../mixins/_rounded.css";
 
-.ck.ck-dropdown .ck-dropdown__panel .ck-list {
-	/* Disabled radius of top-left border to be consistent with .dropdown__button
-	https://github.com/ckeditor/ckeditor5/issues/816 */
-	@mixin ck-rounded-corners {
-		border-top-left-radius: 0;
+.ck.ck-dropdown .ck-dropdown__panel .ck-list .ck-list__item .ck-button {
+	border-radius: 0;
+}
+
+.ck.ck-dropdown .ck-dropdown__panel {
+	&.ck-dropdown__panel_sw .ck-list__item:first-child .ck-button {
+		@mixin ck-rounded-corners {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
 
-	/* Make sure the button belonging to the first/last child of the list goes well with the
-	border radius of the entire panel. */
-	& .ck-list__item {
-		&:first-child .ck-button {
+	&.ck-dropdown__panel_se .ck-list__item:first-child .ck-button {
+		@mixin ck-rounded-corners {
+			border-top-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_sw,
+	&.ck-dropdown__panel_se {
+		& .ck-list__item:last-child .ck-button {
 			@mixin ck-rounded-corners {
+				border-top-right-radius: 0;
 				border-top-left-radius: 0;
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: 0;
 			}
 		}
+	}
 
-		&:last-child .ck-button {
+	&.ck-dropdown__panel_ne .ck-list__item:last-child .ck-button {
+		@mixin ck-rounded-corners {
+			border-bottom-left-radius: 0;
+			border-top-right-radius: 0;
+			border-top-left-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_nw .ck-list__item:last-child .ck-button {
+		@mixin ck-rounded-corners {
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 0;
+			border-top-left-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_nw,
+	&.ck-dropdown__panel_ne {
+		& .ck-list__item:last-child .ck-button {
 			@mixin ck-rounded-corners {
-				border-top-left-radius: 0;
-				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
 			}
 		}
 	}

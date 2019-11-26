@@ -3,6 +3,34 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-.ck.ck-toolbar-dropdown .ck-toolbar {
-	border: 0;
+@import "../../../mixins/_rounded.css";
+
+.ck.ck-toolbar-dropdown .ck-dropdown__panel {
+	& > .ck-toolbar {
+		border: 0;
+	}
+
+	&.ck-dropdown__panel_sw > .ck-toolbar {
+		@mixin ck-rounded-corners {
+			border-top-right-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_se > .ck-toolbar {
+		@mixin ck-rounded-corners {
+			border-top-left-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_ne > .ck-toolbar {
+		@mixin ck-rounded-corners {
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	&.ck-dropdown__panel_nw > .ck-toolbar {
+		@mixin ck-rounded-corners {
+			border-bottom-right-radius: 0;
+		}
+	}
 }
