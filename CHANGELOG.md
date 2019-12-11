@@ -1,6 +1,52 @@
 Changelog
 =========
 
+## [16.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v15.0.0...v16.0.0) (2019-12-04)
+
+### MAJOR BREAKING CHANGES
+
+* The `--ck-color-focus-shadow` custom property is now `--ck-color-focus-outer-shadow`.
+
+### Features
+
+* Added styles for the code block feature UI (see [ckeditor/ckeditor5#436](https://github.com/ckeditor/ckeditor5/issues/436)). ([dcce0f1](https://github.com/ckeditor/ckeditor5-theme-lark/commit/dcce0f1))
+* Implemented styles for `.ck-button` with a keystroke preview (see [ckeditor/ckeditor5#5782](https://github.com/ckeditor/ckeditor5/issues/5782)). ([8427306](https://github.com/ckeditor/ckeditor5-theme-lark/commit/8427306))
+
+### Bug fixes
+
+* Enabled additional box-shadow on `.ck-button` to meet WCAG AA recommendations. Adjusted the color of the `--ck-color-focus-border` for the same reason (editables, widget selection, etc.). Closes [ckeditor/ckeditor5#5580](https://github.com/ckeditor/ckeditor5/issues/5580). ([0fe1500](https://github.com/ckeditor/ckeditor5-theme-lark/commit/0fe1500))
+
+  Also:
+  * Optimized the color of a gird component for WCAG AA.
+  * Imported insert table UI styles from ckeditor5-table (code refactoring).
+     * Improved the table UI contrast and accessibility.
+
+
+## [15.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v14.2.0...v15.0.0) (2019-10-23)
+
+### Bug fixes
+
+* To-do list styles should meet WCAG contrast standards and work with other editor features (e.g. font size). Closes [ckeditor/ckeditor5-list#146](https://github.com/ckeditor/ckeditor5-list/issues/146). Closes [ckeditor/ckeditor5-list#136](https://github.com/ckeditor/ckeditor5-list/issues/136). ([0d4a5e2](https://github.com/ckeditor/ckeditor5-theme-lark/commit/0d4a5e2))
+
+  Also moved some to-do list styles from `@ckeditor/ckeditor5-list` (code refactoring).
+
+### Other changes
+
+* Adjusted toolbar styles to allow automatic items grouping (see [ckeditor/ckeditor5#416](https://github.com/ckeditor/ckeditor5/issues/416)). ([e73b50d](https://github.com/ckeditor/ckeditor5-theme-lark/commit/e73b50d))
+
+
+## [14.2.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v14.1.1...v14.2.0) (2019-08-26)
+
+### Features
+
+* Brought support for right–to–left (RTL) UI to various components' styles. See [ckeditor/ckeditor5#1151](https://github.com/ckeditor/ckeditor5/issues/1151). ([70aa1a5](https://github.com/ckeditor/ckeditor5-theme-lark/commit/70aa1a5))
+
+### Other changes
+
+* The issue tracker for this package was moved to https://github.com/ckeditor/ckeditor5/issues. See [ckeditor/ckeditor5#1988](https://github.com/ckeditor/ckeditor5/issues/1988). ([59e4777](https://github.com/ckeditor/ckeditor5-theme-lark/commit/59e4777))
+* The `.ck-progress-bar` styles should not be under with `.ck-content`. Additionaly removed two unused custom properties: `--ck-color-upload-infinite-background` and `--ck-image-upload-progress-line-width`. Closes https://github.com/ckeditor/ckeditor5-theme-lark/issues/239. Closes https://github.com/ckeditor/ckeditor5/issues/1915. ([cb92793](https://github.com/ckeditor/ckeditor5-theme-lark/commit/cb92793))
+
+
 ## [14.1.1](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v14.1.0...v14.1.1) (2019-07-10)
 
 Internal changes only (updated dependencies, documentation, etc.).

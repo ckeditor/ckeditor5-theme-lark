@@ -7,6 +7,7 @@
 
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
+import Locale from '@ckeditor/ckeditor5-utils/src/locale';
 
 import alignLeft from '@ckeditor/ckeditor5-alignment/theme/icons/align-left.svg';
 import alignCenter from '@ckeditor/ckeditor5-alignment/theme/icons/align-center.svg';
@@ -20,6 +21,8 @@ import code from '@ckeditor/ckeditor5-basic-styles/theme/icons/code.svg';
 import strikethrough from '@ckeditor/ckeditor5-basic-styles/theme/icons/strikethrough.svg';
 import subscript from '@ckeditor/ckeditor5-basic-styles/theme/icons/subscript.svg';
 import superscript from '@ckeditor/ckeditor5-basic-styles/theme/icons/superscript.svg';
+
+import codeBlock from '@ckeditor/ckeditor5-code-block/theme/icons/codeblock.svg';
 
 import cancel from '@ckeditor/ckeditor5-core/theme/icons/cancel.svg';
 import check from '@ckeditor/ckeditor5-core/theme/icons/check.svg';
@@ -81,6 +84,9 @@ const icons = {
 	// basic-styles
 	bold, italic, underline, code, strikethrough, subscript, superscript,
 
+	// code block
+	codeBlock,
+
 	// core
 	check, cancel, eraser, lowVision, quote, image, objectLeft, objectCenter, objectRight, objectFullWidth, pencil, pilcrow,
 
@@ -118,7 +124,7 @@ const icons = {
 	undo, redo
 };
 
-const toolbar = new ToolbarView();
+const toolbar = new ToolbarView( new Locale() );
 
 for ( const i in icons ) {
 	const button = new ButtonView();

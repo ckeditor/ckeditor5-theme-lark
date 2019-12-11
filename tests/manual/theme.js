@@ -10,6 +10,7 @@ import testUtils from '@ckeditor/ckeditor5-ui/tests/_utils/utils';
 import Collection from '@ckeditor/ckeditor5-utils/src/collection';
 import Model from '@ckeditor/ckeditor5-ui/src/model';
 import View from '@ckeditor/ckeditor5-ui/src/view';
+import Locale from '@ckeditor/ckeditor5-utils/src/locale';
 
 import IconView from '@ckeditor/ckeditor5-ui/src/icon/iconview';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
@@ -28,6 +29,8 @@ import checkIcon from '@ckeditor/ckeditor5-core/theme/icons/check.svg';
 import cancelIcon from '@ckeditor/ckeditor5-core/theme/icons/cancel.svg';
 
 import SplitButtonView from '@ckeditor/ckeditor5-ui/src/dropdown/button/splitbuttonview';
+
+const locale = new Locale();
 
 class TextView extends View {
 	constructor() {
@@ -59,6 +62,7 @@ const ui = testUtils.createTestUIView( {
 	'buttonStates': '#button-states',
 	'buttonTypes': '#button-types',
 	'buttonIcon': '#button-icon',
+	'buttonKeystroke': '#button-keystroke',
 	'buttonCustom': '#button-custom',
 	'buttonIconCustom': '#button-icon-custom',
 	'buttonIconStates': '#button-icon-states',
@@ -180,6 +184,22 @@ function renderButton() {
 	// TODO: It requires model interface.
 	disabledActionButton.element.classList.add( 'ck-button-action' );
 
+	// --- Keystrokes ------------------------------------------------------------
+
+	ui.buttonKeystroke.add( toolbar( [
+		button( {
+			label: 'Foo',
+			keystroke: 'Ctrl+A',
+			withKeystroke: true
+		} ),
+		button( {
+			label: 'Bar',
+			icon: boldIcon,
+			keystroke: 'Shift+Tab',
+			withKeystroke: true
+		} )
+	] ) );
+
 	// --- Responsive ------------------------------------------------------------
 
 	for ( let i = 1; i < 4; i++ ) {
@@ -245,6 +265,29 @@ function renderDropdown() {
 			withText: true,
 			isOn: true,
 			icon: boldIcon
+		} )
+	} );
+
+	collection.add( {
+		type: 'button',
+		model: new Model( {
+			label: 'Icon and key',
+			withText: true,
+			icon: boldIcon,
+			keystroke: 'Shift+Tab',
+			withKeystroke: true
+		} )
+	} );
+
+	collection.add( {
+		type: 'button',
+		model: new Model( {
+			label: 'On with a keystroke',
+			withText: true,
+			isOn: true,
+			icon: boldIcon,
+			keystroke: 'Ctrl+A',
+			withKeystroke: true
 		} )
 	} );
 
@@ -472,11 +515,12 @@ function button( {
 	keystroke = null,
 	tooltip,
 	tooltipPosition = 's',
+	withKeystroke = false,
 	icon
 } = {} ) {
 	const button = new ButtonView();
 
-	button.set( { label, isEnabled, isOn, withText, icon, keystroke, tooltip, tooltipPosition } );
+	button.set( { label, isEnabled, isOn, withText, icon, keystroke, tooltip, withKeystroke, tooltipPosition } );
 
 	return button;
 }
@@ -499,7 +543,7 @@ function switchbutton( {
 }
 
 function toolbar( children = [] ) {
-	const toolbar = new ToolbarView();
+	const toolbar = new ToolbarView( locale );
 
 	children.forEach( c => toolbar.items.add( c ) );
 
@@ -513,7 +557,7 @@ function listDropdown( {
 	withText = true,
 	items = new Collection( { idProperty: 'label' } )
 } = {} ) {
-	const dropdown = createDropdown( {} );
+	const dropdown = createDropdown( locale );
 	addListToDropdown( dropdown, items );
 
 	dropdown.buttonView.set( { label, isEnabled, isOn, withText } );
@@ -529,7 +573,7 @@ function toolbarDropdown( {
 	isVertical = true,
 	buttons = []
 } = {} ) {
-	const dropdown = createDropdown( {} );
+	const dropdown = createDropdown( locale );
 
 	addToolbarToDropdown( dropdown, buttons );
 
@@ -547,7 +591,7 @@ function splitButtonDropdown( {
 	isVertical = true,
 	buttons = []
 } = {} ) {
-	const dropdown = createDropdown( {}, SplitButtonView );
+	const dropdown = createDropdown( locale, SplitButtonView );
 
 	addToolbarToDropdown( dropdown, buttons );
 
@@ -575,3 +619,14 @@ function input( {
 
 	return labeledInput;
 }
+
+function setManualTestDirection( direction ) {
+	document.querySelector( '.manual-test-container' ).classList.add( 'ck' );
+	document.querySelector( '.manual-test-container' ).setAttribute( 'dir', direction );
+}
+
+document.querySelector( '#direcion-selector' ).addEventListener( 'change', evt => {
+	setManualTestDirection( evt.target.value );
+} );
+
+setManualTestDirection( 'ltr' );
