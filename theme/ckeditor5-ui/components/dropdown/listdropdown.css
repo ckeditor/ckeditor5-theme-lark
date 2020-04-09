@@ -10,7 +10,7 @@
 }
 
 .ck.ck-dropdown .ck-dropdown__panel {
-	&.ck-dropdown__panel_sw .ck-list__item:first-child .ck-button {
+	&.ck-dropdown__panel_sw > .ck-list .ck-list__item:first-child .ck-button {
 		@mixin ck-rounded-corners {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
@@ -18,7 +18,7 @@
 		}
 	}
 
-	&.ck-dropdown__panel_se .ck-list__item:first-child .ck-button {
+	&.ck-dropdown__panel_se > .ck-list .ck-list__item:first-child .ck-button {
 		@mixin ck-rounded-corners {
 			border-top-left-radius: 0;
 			border-bottom-right-radius: 0;
@@ -28,7 +28,7 @@
 
 	&.ck-dropdown__panel_sw,
 	&.ck-dropdown__panel_se {
-		& .ck-list__item:last-child .ck-button {
+		& > .ck-list .ck-list__item:last-child .ck-button {
 			@mixin ck-rounded-corners {
 				border-top-right-radius: 0;
 				border-top-left-radius: 0;
@@ -36,7 +36,7 @@
 		}
 	}
 
-	&.ck-dropdown__panel_ne .ck-list__item:last-child .ck-button {
+	&.ck-dropdown__panel_ne > .ck-list .ck-list__item:last-child .ck-button {
 		@mixin ck-rounded-corners {
 			border-bottom-left-radius: 0;
 			border-top-right-radius: 0;
@@ -44,7 +44,7 @@
 		}
 	}
 
-	&.ck-dropdown__panel_nw .ck-list__item:last-child .ck-button {
+	&.ck-dropdown__panel_nw > .ck-list .ck-list__item:last-child .ck-button {
 		@mixin ck-rounded-corners {
 			border-bottom-right-radius: 0;
 			border-top-right-radius: 0;
@@ -54,7 +54,7 @@
 
 	&.ck-dropdown__panel_nw,
 	&.ck-dropdown__panel_ne {
-		& .ck-list__item:last-child .ck-button {
+		& > .ck-list .ck-list__item:last-child .ck-button {
 			@mixin ck-rounded-corners {
 				border-bottom-right-radius: 0;
 				border-bottom-left-radius: 0;
