@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -109,6 +109,42 @@
 		&::after {
 			right: calc(2 * var(--ck-balloon-arrow-half-width));
 			bottom: calc(-1 * var(--ck-balloon-arrow-height));
+		}
+	}
+
+	&.ck-balloon-panel_arrow_sme {
+		&::before,
+		&::after {
+			right: 25%;
+			margin-right: calc(2 * var(--ck-balloon-arrow-half-width));
+			bottom: calc(-1 * var(--ck-balloon-arrow-height));
+		}
+	}
+
+	&.ck-balloon-panel_arrow_smw {
+		&::before,
+		&::after {
+			left: 25%;
+			margin-left: calc(2 * var(--ck-balloon-arrow-half-width));
+			bottom: calc(-1 * var(--ck-balloon-arrow-height));
+		}
+	}
+
+	&.ck-balloon-panel_arrow_nme {
+		&::before,
+		&::after {
+			right: 25%;
+			margin-right: calc(2 * var(--ck-balloon-arrow-half-width));
+			top: calc(-1 * var(--ck-balloon-arrow-height));
+		}
+	}
+
+	&.ck-balloon-panel_arrow_nmw {
+		&::before,
+		&::after {
+			left: 25%;
+			margin-left: calc(2 * var(--ck-balloon-arrow-half-width));
+			top: calc(-1 * var(--ck-balloon-arrow-height));
 		}
 	}
 }

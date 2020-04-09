@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -20,8 +20,9 @@ import { createDropdown, addListToDropdown, addToolbarToDropdown } from '@ckedit
 
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import ToolbarSeparatorView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarseparatorview';
-import InputTextView from '@ckeditor/ckeditor5-ui/src/inputtext/inputtextview';
-import LabeledInputView from '@ckeditor/ckeditor5-ui/src/labeledinput/labeledinputview';
+
+import LabeledFieldView from '@ckeditor/ckeditor5-ui/src/labeledfield/labeledfieldview';
+import { createLabeledInputText } from '@ckeditor/ckeditor5-ui/src/labeledfield/utils';
 
 import boldIcon from '@ckeditor/ckeditor5-basic-styles/theme/icons/bold.svg';
 import italicIcon from '@ckeditor/ckeditor5-basic-styles/theme/icons/italic.svg';
@@ -62,6 +63,7 @@ const ui = testUtils.createTestUIView( {
 	'buttonStates': '#button-states',
 	'buttonTypes': '#button-types',
 	'buttonIcon': '#button-icon',
+	'buttonKeystroke': '#button-keystroke',
 	'buttonCustom': '#button-custom',
 	'buttonIconCustom': '#button-icon-custom',
 	'buttonIconStates': '#button-icon-states',
@@ -79,6 +81,7 @@ const ui = testUtils.createTestUIView( {
 	'toolbarWrap': '#toolbar-wrap',
 	'toolbarSeparator': '#toolbar-separator',
 	'toolbarMultiRow': '#toolbar-multi-row',
+	'toolbarCompact': '#toolbar-compact',
 
 	'inputLabeled': '#input-labeled',
 	'inputReadOnly': '#input-read-only'
@@ -104,7 +107,7 @@ function renderButton() {
 
 	ui.buttonStates.add( toolbar( [
 		button( {
-			label: 'State: normal (none)',
+			label: 'State: normal (none)'
 		} ),
 		button( {
 			label: 'State: disabled',
@@ -183,6 +186,22 @@ function renderButton() {
 	// TODO: It requires model interface.
 	disabledActionButton.element.classList.add( 'ck-button-action' );
 
+	// --- Keystrokes ------------------------------------------------------------
+
+	ui.buttonKeystroke.add( toolbar( [
+		button( {
+			label: 'Foo',
+			keystroke: 'Ctrl+A',
+			withKeystroke: true
+		} ),
+		button( {
+			label: 'Bar',
+			icon: boldIcon,
+			keystroke: 'Shift+Tab',
+			withKeystroke: true
+		} )
+	] ) );
+
 	// --- Responsive ------------------------------------------------------------
 
 	for ( let i = 1; i < 4; i++ ) {
@@ -216,7 +235,7 @@ function renderButton() {
 		button( {
 			label: 'This button has a tooltip (south)',
 			withText: true,
-			tooltip: 'The content of the tooltip',
+			tooltip: 'The content of the tooltip'
 		} ),
 		button( {
 			label: 'This one too – north',
@@ -248,6 +267,29 @@ function renderDropdown() {
 			withText: true,
 			isOn: true,
 			icon: boldIcon
+		} )
+	} );
+
+	collection.add( {
+		type: 'button',
+		model: new Model( {
+			label: 'Icon and key',
+			withText: true,
+			icon: boldIcon,
+			keystroke: 'Shift+Tab',
+			withKeystroke: true
+		} )
+	} );
+
+	collection.add( {
+		type: 'button',
+		model: new Model( {
+			label: 'On with a keystroke',
+			withText: true,
+			isOn: true,
+			icon: boldIcon,
+			keystroke: 'Ctrl+A',
+			withKeystroke: true
 		} )
 	} );
 
@@ -445,6 +487,28 @@ function renderToolbar() {
 			icon: boldIcon
 		} )
 	] ) );
+
+	// --- Compact ------------------------------------------------------------
+
+	const compactToolbar = toolbar( [
+		button( {
+			icon: boldIcon,
+			withText: false
+		} ),
+		button( {
+			icon: italicIcon,
+			withText: false,
+			isOn: true
+		} ),
+		button( {
+			icon: cancelIcon,
+			withText: false
+		} )
+	] );
+
+	compactToolbar.isCompact = true;
+
+	ui.toolbarCompact.add( compactToolbar );
 }
 
 function renderInput() {
@@ -475,11 +539,12 @@ function button( {
 	keystroke = null,
 	tooltip,
 	tooltipPosition = 's',
+	withKeystroke = false,
 	icon
 } = {} ) {
 	const button = new ButtonView();
 
-	button.set( { label, isEnabled, isOn, withText, icon, keystroke, tooltip, tooltipPosition } );
+	button.set( { label, isEnabled, isOn, withText, icon, keystroke, tooltip, withKeystroke, tooltipPosition } );
 
 	return button;
 }
@@ -572,9 +637,9 @@ function input( {
 	isReadOnly = false,
 	value = 'The value of the input'
 } = {} ) {
-	const labeledInput = new LabeledInputView( {}, InputTextView );
+	const labeledInput = new LabeledFieldView( {}, createLabeledInputText );
 
-	labeledInput.set( { isReadOnly, label, value } );
+	labeledInput.fieldView.set( { isReadOnly, label, value } );
 
 	return labeledInput;
 }

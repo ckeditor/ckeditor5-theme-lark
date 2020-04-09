@@ -1,6 +1,65 @@
 Changelog
 =========
 
+## [18.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v17.0.0...v18.0.0) (2020-03-19)
+
+### Features
+
+* Brought styles for the new [`BalloonPanelView.defaultPositions`](https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_panel_balloon_balloonpanelview-BalloonPanelView.html#static-member-defaultPositions). Adjusted toolbar styles for better items grouping in different scenarios (see [ckeditor/ckeditor5#5597](https://github.com/ckeditor/ckeditor5/issues/5597)). ([0c17040](https://github.com/ckeditor/ckeditor5-theme-lark/commit/0c17040))
+* Introduced RTL support to the table and table cell property forms (see [ckeditor/ckeditor5#6107](https://github.com/ckeditor/ckeditor5/issues/6107)). ([931351c](https://github.com/ckeditor/ckeditor5-theme-lark/commit/931351c))
+
+### Bug fixes
+
+* The focused table cell background color should blend with the pre-existing cell background rather than completely override it. Closes [ckeditor/ckeditor5#6229](https://github.com/ckeditor/ckeditor5/issues/6229). ([f5312ed](https://github.com/ckeditor/ckeditor5-theme-lark/commit/f5312ed))
+* Pointer inside a restricted editing exception should be set to text for all the children. Closes [ckeditor/ckeditor5#6272](https://github.com/ckeditor/ckeditor5/issues/6272). ([a20d13b](https://github.com/ckeditor/ckeditor5-theme-lark/commit/a20d13b))
+
+
+## [17.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v16.0.0...v17.0.0) (2020-02-19)
+
+### MAJOR BREAKING CHANGES
+
+* Changed the class denoting the restricted editing exception spans from `ck-restricted-editing-exception` to `restricted-editing-exception`.
+
+### Features
+
+* Added styles for rich error messages in the table and table cell properties forms (see [ckeditor/ckeditor5#6131](https://github.com/ckeditor/ckeditor5/issues/6131)). ([f859f4b](https://github.com/ckeditor/ckeditor5-theme-lark/commit/f859f4b))
+* Added styles for the color input (see ckeditor/ckeditor5/issues/6106). ([e64013f](https://github.com/ckeditor/ckeditor5-theme-lark/commit/e64013f))
+* Added styles for the LabeledView (see [ckeditor/ckeditor5-table#227](https://github.com/ckeditor/ckeditor5-table/issues/227)). ([4e36147](https://github.com/ckeditor/ckeditor5-theme-lark/commit/4e36147))
+* Added styles of new fields in the table cell properties view. Code refactoring (see [ckeditor/ckeditor5#6189](https://github.com/ckeditor/ckeditor5/issues/6189)). ([c2bf945](https://github.com/ckeditor/ckeditor5-theme-lark/commit/c2bf945))
+* Added the special character info view styles (see [ckeditor/ckeditor5#5817](https://github.com/ckeditor/ckeditor5/issues/5817)). ([86079fd](https://github.com/ckeditor/ckeditor5-theme-lark/commit/86079fd))
+* Brought styles for various UI views: the compact toolbar, table form, table form row and header, table cell properties form, and table properties form (see ckeditor/ckeditor5/issues/6112). ([339aec1](https://github.com/ckeditor/ckeditor5-theme-lark/commit/339aec1))
+
+### Bug fixes
+
+* Removed `ck-` prefix from the restricted editing's CSS classes used in the editor content. Closes [ckeditor/ckeditor5#5899](https://github.com/ckeditor/ckeditor5/issues/5899). ([599f16e](https://github.com/ckeditor/ckeditor5-theme-lark/commit/599f16e))
+
+### Other changes
+
+* Add hover state for all restricted editing exceptions and fix the width of a collapsed exception in restricted editing. Closes [ckeditor/ckeditor5#5829](https://github.com/ckeditor/ckeditor5/issues/5829). ([08d6613](https://github.com/ckeditor/ckeditor5-theme-lark/commit/08d6613))
+* Set default cursor in restricted editing mode while restricted editing exceptions still have text cursor when you hover over them. Closes [ckeditor/ckeditor5#5992](https://github.com/ckeditor/ckeditor5/issues/5992). ([2602ab4](https://github.com/ckeditor/ckeditor5-theme-lark/commit/2602ab4))
+
+
+## [16.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v15.0.0...v16.0.0) (2019-12-04)
+
+### MAJOR BREAKING CHANGES
+
+* The `--ck-color-focus-shadow` custom property is now `--ck-color-focus-outer-shadow`.
+
+### Features
+
+* Added styles for the code block feature UI (see [ckeditor/ckeditor5#436](https://github.com/ckeditor/ckeditor5/issues/436)). ([dcce0f1](https://github.com/ckeditor/ckeditor5-theme-lark/commit/dcce0f1))
+* Implemented styles for `.ck-button` with a keystroke preview (see [ckeditor/ckeditor5#5782](https://github.com/ckeditor/ckeditor5/issues/5782)). ([8427306](https://github.com/ckeditor/ckeditor5-theme-lark/commit/8427306))
+
+### Bug fixes
+
+* Enabled additional box-shadow on `.ck-button` to meet WCAG AA recommendations. Adjusted the color of the `--ck-color-focus-border` for the same reason (editables, widget selection, etc.). Closes [ckeditor/ckeditor5#5580](https://github.com/ckeditor/ckeditor5/issues/5580). ([0fe1500](https://github.com/ckeditor/ckeditor5-theme-lark/commit/0fe1500))
+
+  Also:
+  * Optimized the color of a gird component for WCAG AA.
+  * Imported insert table UI styles from ckeditor5-table (code refactoring).
+     * Improved the table UI contrast and accessibility.
+
+
 ## [15.0.0](https://github.com/ckeditor/ckeditor5-theme-lark/compare/v14.2.0...v15.0.0) (2019-10-23)
 
 ### Bug fixes
