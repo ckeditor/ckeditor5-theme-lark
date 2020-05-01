@@ -1,6 +1,10 @@
 CKEditor 5 Lark theme
 ========================================
 
+<h3 align=center>⚠⚠ This repository was moved ⚠⚠</h3>
+
+<p align=center>The package was moved to the <a href="https://github.com/ckeditor/ckeditor5/tree/master/packages">main repository</a>.</p>
+
 [![npm version](https://badge.fury.io/js/%40ckeditor%2Fckeditor5-theme-lark.svg)](https://www.npmjs.com/package/@ckeditor/ckeditor5-theme-lark)
 [![Dependency Status](https://david-dm.org/ckeditor/ckeditor5-theme-lark/status.svg)](https://david-dm.org/ckeditor/ckeditor5-theme-lark)
 [![devDependency Status](https://david-dm.org/ckeditor/ckeditor5-theme-lark/dev-status.svg)](https://david-dm.org/ckeditor/ckeditor5-theme-lark?type=dev)
