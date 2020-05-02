@@ -35,15 +35,17 @@
 
 		@nest [dir="ltr"] & {
 			/* Don't round the arrow button on the left side */
-			@mixin ck-rounded-corners {
-				border-top-left-radius: unset;
-				border-bottom-left-radius: unset;
-			}
+			border-top-left-radius: unset;
+			border-top-right-radius: var(--ck-border-radius);
+			border-bottom-left-radius: unset;
+			border-bottom-right-radius: var(--ck-border-radius);
 		}
 
 		@nest [dir="rtl"] & {
 			/* Don't round the arrow button on the right side */
+			border-top-left-radius: var(--ck-border-radius);
 			border-top-right-radius: unset;
+			border-bottom-left-radius: var(--ck-border-radius);
 			border-bottom-right-radius: unset;
 		}
 
@@ -78,13 +80,23 @@
 	/* Don't round the bottom left and right corners of the buttons when "open"
 	https://github.com/ckeditor/ckeditor5/issues/816 */
 	&.ck-splitbutton_open {
-		@mixin ck-rounded-corners {
-			& > .ck-splitbutton__action {
+		& > .ck-splitbutton__action {
+			@nest [dir="ltr"] & {
 				border-bottom-left-radius: 0;
 			}
 
-			& > .ck-splitbutton__arrow {
+			@nest [dir="rtl"] & {
 				border-bottom-right-radius: 0;
+			}
+		}
+
+		& > .ck-splitbutton__arrow {
+			@nest [dir="ltr"] & {
+				border-bottom-right-radius: 0;
+			}
+
+			@nest [dir="rtl"] & {
+				border-bottom-left-radius: 0;
 			}
 		}
 	}
